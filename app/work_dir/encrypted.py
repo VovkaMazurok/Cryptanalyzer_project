@@ -4,6 +4,13 @@ import pathlib
 def encryption_text(text: str, ALPHABET_FOR_CODING: str, key: int) -> None:  # noqa: N803
     encryption_lst = []
     for leter in text:
+        if leter in ALPHABET_FOR_CODING:
+            index_of_leter = ALPHABET_FOR_CODING.index(leter)
+            encryption_lst.append(ALPHABET_FOR_CODING[(index_of_leter + key) % len(ALPHABET_FOR_CODING)])
+        else:
+            # Handle the case where the character is not found in ALPHABET_FOR_CODING
+            # Skip the character
+            continue
         index_of_leter = ALPHABET_FOR_CODING.index(leter)
         encryption_lst.append(ALPHABET_FOR_CODING[(index_of_leter + key) % len(ALPHABET_FOR_CODING)])
     encryption_text = "".join(encryption_lst)
