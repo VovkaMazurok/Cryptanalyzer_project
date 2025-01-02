@@ -1,0 +1,12 @@
+services:
+  app:
+    build:
+      target: final
+
+    tty: true
+    stdin_open: true
+
+    volumes:
+      - ./wallet:/wd/wallet:rw
+
+    user: ${USER_ID:-1000}

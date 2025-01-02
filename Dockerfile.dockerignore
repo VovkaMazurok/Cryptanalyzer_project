@@ -1,0 +1,9 @@
+# Ignore all
+**
+
+# Exclude
+!uv.lock
+!pyproject.toml
+
+!main.py
+!app
