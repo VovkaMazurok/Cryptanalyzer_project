@@ -1,7 +1,14 @@
-import pathlib
+from app.work_dir.writing_text_to_file import file_recording
 
 
-def encryption_text(text: str, ALPHABET_FOR_CODING: str, key: int) -> None:  # noqa: N803
+def encryption_text(text: str, ALPHABET_FOR_CODING: str, file_name, key: int) -> None:  # noqa: N803
+    r"""Шифрує заданий текст за допомогою шифру Цезаря та викликає функцію для запису в файл.
+
+    Функція здійснює шифрування для кожного символу тексту, який належить
+    до зазначеного алфавіту (ALPHABET_FOR_CODING). Символи, які не входять
+    до алфавіту (зокрема пробіли та спеціальні символи, крім перенесення рядків),
+    пропускаються. Перенесення рядків (\n) також зберігаються у зашифрованому тексті.
+    """
     encryption_lst = []
     for leter in text:
         if leter in ALPHABET_FOR_CODING:
@@ -14,9 +21,4 @@ def encryption_text(text: str, ALPHABET_FOR_CODING: str, key: int) -> None:  # n
             # Пропускаємо символ символ
             continue
     encryption_text = "".join(encryption_lst)
-    root_dir = pathlib.Path(__file__).resolve().parents[2]
-    doc_dir = root_dir / "box_with_documents"
-    file_path = doc_dir / "ENCRYPTED.txt"
-    doc_dir.mkdir(parents=True, exist_ok=True)
-    with open(file_path, "w") as file:
-        file.write(encryption_text)
+    file_recording(encryption_text, file_name)

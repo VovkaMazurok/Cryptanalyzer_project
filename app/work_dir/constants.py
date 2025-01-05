@@ -6,3 +6,5 @@ DEFAULT_ENCRYPTION_TEXT: Final[str] = (
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit! Sed do eiusmod tempor "
     "incididunt ut labore et dolore magna aliqua."
 )
+ENCRYPTED_FILE: Final[str] = "ENCRYPTED.txt"
+DECRYPTED_FILE: Final[str] = "DECRYPTED.txt"
