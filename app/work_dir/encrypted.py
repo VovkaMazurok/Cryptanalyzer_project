@@ -7,12 +7,12 @@ def encryption_text(text: str, ALPHABET_FOR_CODING: str, key: int) -> None:  # n
         if leter in ALPHABET_FOR_CODING:
             index_of_leter = ALPHABET_FOR_CODING.index(leter)
             encryption_lst.append(ALPHABET_FOR_CODING[(index_of_leter + key) % len(ALPHABET_FOR_CODING)])
+        elif leter == "\n":
+            encryption_lst.append("\n")  # Зберегти символ нового рядка
         else:
-            # Handle the case where the character is not found in ALPHABET_FOR_CODING
-            # Skip the character
+            # Обробка випадку, коли символ не знайдено в ALPHABET_FOR_CODING
+            # Пропускаємо символ символ
             continue
-        index_of_leter = ALPHABET_FOR_CODING.index(leter)
-        encryption_lst.append(ALPHABET_FOR_CODING[(index_of_leter + key) % len(ALPHABET_FOR_CODING)])
     encryption_text = "".join(encryption_lst)
     root_dir = pathlib.Path(__file__).resolve().parents[2]
     doc_dir = root_dir / "box_with_documents"
