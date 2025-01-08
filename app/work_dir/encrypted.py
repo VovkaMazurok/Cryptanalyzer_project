@@ -21,4 +21,4 @@ def encryption_text(text: str, ALPHABET_FOR_CODING: str, file_name, key: int) ->
             # Пропускаємо символ символ
             continue
     encryption_text = "".join(encryption_lst)
-    file_recording(encryption_text, file_name)
+    file_recording(file_name, encryption_text)

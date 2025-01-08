@@ -12,3 +12,5 @@ def file_recording(file_name: str, text: str) -> None:
     doc_dir.mkdir(parents=True, exist_ok=True)
     with open(file_path, "w") as file:
         file.write(text)
+
+

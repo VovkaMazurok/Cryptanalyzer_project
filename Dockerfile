@@ -8,6 +8,7 @@ ENV PYTHONUNBUFFERED=1
 
 ARG WORKDIR=/wd
 
+
 # [update_and_pre_install]-[BEGIN]
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
@@ -19,6 +20,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
 ARG USER=user
 
 WORKDIR ${WORKDIR}
+
 
 RUN useradd --system ${USER} &&\
     chown --recursive ${USER} ${WORKDIR}
